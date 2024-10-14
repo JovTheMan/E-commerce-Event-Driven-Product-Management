@@ -1,6 +1,15 @@
 // Task 2: Select HTML Elements for Price Display and Dropdown
 const productPrice = document.getElementById('product-price');
 const productSize = document.getElementById('product-size');
+const purchaseButton = document.getElementById('purchase-button');
+
+// Task 5: Selectors for New Product Form and Product List Container
+const newProductName = document.getElementById('new-product-name');
+const newProductSize = document.getElementById('new-product-size');
+const newProductPrice = document.getElementById('new-product-price');
+const newProductStock = document.getElementById('new-product-stock');
+const addProductButton = document.getElementById('add-product-button');
+const productList = document.getElementById('product-list');
 
 // Task 2 & Task 3: Update Price Based on Selected Size and Handle Stock Availability
 productSize.addEventListener('change', function () {
@@ -16,8 +25,6 @@ productSize.addEventListener('change', function () {
 });
 
 // Task 4: Handle Purchase Action for Main Product
-const purchaseButton = document.getElementById('purchase-button');
-
 purchaseButton.addEventListener('click', function () {
     const selectedOption = productSize.options[productSize.selectedIndex];
     const stockStatus = selectedOption.getAttribute('data-stock');
@@ -29,18 +36,11 @@ purchaseButton.addEventListener('click', function () {
     }
 });
 
-// Task 5: Selectors for New Product Form and Product List Container
-const newProductName = document.getElementById('new-product-name');
-const newProductSize = document.getElementById('new-product-size');
-const newProductPrice = document.getElementById('new-product-price');
-const newProductStock = document.getElementById('new-product-stock');
-const addProductButton = document.getElementById('add-product-button');
-const productList = document.getElementById('product-list');
-
-// Add New Product to List
+// Task 5: Event Listener for Adding New Products Dynamically
 addProductButton.addEventListener('click', function (e) {
     e.preventDefault();
     
+    // Get values from the form
     const name = newProductName.value;
     const size = newProductSize.value;
     const price = newProductPrice.value;
