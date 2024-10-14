@@ -10,3 +10,16 @@ productSize.addEventListener('change', function () {
     // Update price display
     productPrice.textContent = `$${price}.00`;
 });
+
+// Task 3: Update Price and Handle Stock Availability
+productSize.addEventListener('change', function () {
+    const selectedOption = productSize.options[productSize.selectedIndex];
+    const price = selectedOption.getAttribute('data-price');
+    const stockStatus = selectedOption.getAttribute('data-stock');
+    
+    // Update price display
+    productPrice.textContent = `$${price}.00`;
+
+    // Enable or disable purchase button based on stock status
+    purchaseButton.disabled = stockStatus !== 'in-stock';
+});
